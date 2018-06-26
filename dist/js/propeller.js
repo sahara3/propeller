@@ -11,8 +11,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 // Attach Parent Selector
 var commons = function () {
-	
-	function commons() {}
+
+	function commons() { }
 	commons.attachParentSelector = function (parentSelector, defaultSelector) {
 		var customSelector = defaultSelector;
 		if (parentSelector !== '' && parentSelector.length > 0) {
@@ -96,9 +96,9 @@ var observeDOM = (function () {
 
 $(document).ready(function () {
 	observeDOM(document.querySelector('body'), function (mutations) {
-		
+
 		processMutation(0);
-		
+
 		function processMutation(index) {
 			if (index >= mutations.length) {
 				return;
@@ -109,7 +109,7 @@ $(document).ready(function () {
 				processMutation(index + 1);
 			});
 		}
-		
+
 		function processNodes(nodes, callback) {
 			if (nodes.length === 0) {
 				callback();
@@ -143,14 +143,14 @@ $(document).ready(function () {
 					}
 					return false;
 				});
-				processNode(nodes, index+1, function() {
+				processNode(nodes, index + 1, function () {
 					callback();
 				});
 			} else {
 
 				var childNodes = node.childNodes;
-				processNodes(childNodes, function() {
-					processNode(nodes, index+1, function() {
+				processNodes(childNodes, function () {
+					processNode(nodes, index + 1, function () {
 						callback();
 					});
 				});
@@ -163,10 +163,10 @@ $(document).ready(function () {
 			}
 			var classes = $(ele).attr('class').split(' ');
 			for (var i = 0; i < classes.length; i++) {
-				
+
 				if (propellerControlMapping.hasOwnProperty(classes[i])) {
-					return true;	
-				}				
+					return true;
+				}
 			}
 			return false;
 		}
